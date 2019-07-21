@@ -1,1 +1,1 @@
-# ruby-linked-list
+The Odin Project curriculum https://www.theodinproject.com/courses/ruby-programming/lessons/linked-lists
