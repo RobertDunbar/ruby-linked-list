@@ -1,5 +1,3 @@
-include "./node.rb"
-
 class LinkedList
     attr_accessor :name
 
@@ -50,7 +48,7 @@ class LinkedList
 
     def at(index)
         current_node = @head
-        for num in 0..index
+        index.times do
             current_node = current_node.next_node
         end
         current_node
@@ -63,6 +61,7 @@ class LinkedList
             if current_node.next_node.next_node.nil?
                 current_node.next_node = nil
             end
+            current_node = current_node.next_node
         end
         current_node
     end
@@ -97,11 +96,18 @@ class LinkedList
         output
     end
 
-    def insert_at(index)
-
+    def insert_at(node, index)
+        return self.prepend(node) if index == 0
+        current_node = @head
+        (index - 1).times { current_node = current_node.next_node }
+        node.next_node = current_node.next_node
+        current_node.next_node = node
     end
 
     def remove_at(index)
-
+        self.pop if self.size == index + 1
+        current_node = @head
+        (index - 1).times { current_node = current_node.next_node }
+        current_node.next_node = current_node.next_node.next_node
     end
 end
