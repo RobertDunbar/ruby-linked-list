@@ -7,7 +7,6 @@ class LinkedList
         @tail = nil
     end
 
-
     def append(node)
         if @head.nil?
             @head = node
@@ -105,7 +104,7 @@ class LinkedList
     end
 
     def remove_at(index)
-        self.pop if self.size == index + 1
+        return self.pop if self.size == index + 1
         current_node = @head
         (index - 1).times { current_node = current_node.next_node }
         current_node.next_node = current_node.next_node.next_node
